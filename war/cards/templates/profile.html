@@ -1,11 +1,23 @@
 {% extends 'base_template.html' %}
 
 {% block content %}
-    <p>Hi {{ user.username }}, you have 0 wins and 0 loses.</p>
+    <p>Hi {{ user.username }}, you have {{ wins }} wins and {{ losses }} loses.</p>
     <p>Your email address is {{ user.email }}</p>
-
+    <br>
+    <h2>Your Badges</h2>
+        {% if wins < 5 %}
+            <p>No badges yet</p>
+        {% elif wins > 5 and wins < 15 %}
+            <p>5 win badge!</p>
+        {% elif wins > 15 and wins < 30 %}
+            <p>15 win badge!</p>
+        {% elif wins > 30 %}
+            <p>30 win badge!</p>
+    {% endif %}
+    <br>
     <h2>Past Games</h2>
     {% for game in games %}
         <p>{{ game.get_result_display }}</p>
     {% endfor %}
+
 {% endblock content %}
