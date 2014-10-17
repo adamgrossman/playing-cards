@@ -1,15 +1,22 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from cards.forms import EmailUserCreationForm
+from cards.utils import get_random_comic
 from cards.models import Card, WarGame
 
 
 def home(request):
     data = {
-        'cards': Card.objects.all()
+        'cards': Card.objects.all(),
+        'comic': get_random_comic()
     }
 
     return render(request, 'cards.html', data)
+
+
+# def home(request):
+#     return render(request, 'cards.html', {
+#     })
 
 
 def filters(request):
@@ -84,6 +91,7 @@ def register(request):
     if request.method == 'POST':
         form = EmailUserCreationForm(request.POST)
         if form.is_valid():
+            form.save()
             return redirect("profile")
     else:
         form = EmailUserCreationForm()

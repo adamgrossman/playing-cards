@@ -61,6 +61,12 @@ class Player(AbstractUser):
     def get_losses(self):
         return WarGame.objects.filter(player=self, result=WarGame.LOSS).count()
 
+    def get_ties(self):
+        return WarGame.objects.filter(player=self, result=WarGame.TIE).count()
+
+    def get_record_display(self):
+        return "{}-{}-{}".format(self.get_wins(), self.get_losses(), self.get_ties())
+
 
 class WarGame(models.Model):
     LOSS = -1

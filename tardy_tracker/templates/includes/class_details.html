@@ -1,0 +1,12 @@
+{% for thing in current_status %}
+    <tr>
+        <td><strong>{{ thing.student }}</strong>: </td>
+        <td>
+            {% if thing.logged_in %}
+                has checked in
+            {% else %}
+                has not checked in
+            {% endif %}
+        </td>
+    </tr>
+{% endfor %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ course.name|capfirst }}</h1>
+    <hr>
+
+    <div class="col-lg-12">
+        <h4>Course Info</h4>
+        <table class="table">
+            <tr>
+                <th>Teacher</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+{#                <th>Students</th>#}
+            </tr>
+                <td>{{ course.teacher|capfirst }}</td>
+                <td>{{ course.start_time }}</td>
+                <td>{{ course.end_time }}</td>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock content %}
