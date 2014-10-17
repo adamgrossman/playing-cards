@@ -91,3 +91,6 @@ staticfiles
 .idea/
 local_settings.py
 >>>>>>> dfd1782f92f524a98b3c555ba06b19307654dcb0
+
+classtracker/
+tardy_tracker/
