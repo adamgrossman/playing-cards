@@ -7,10 +7,10 @@ class ModelTestCase(TestCase):
     def setUp(self):
         PlayerFactory.create_batch(3)
 
-    def test_failing_case(self):
-        a = 2
-        b = 3
-        self.assertEqual(a * b, 6)
+    # def test_failing_case(self):
+    #     a = 2
+    #     b = 3
+    #     self.assertEqual(a * b, 6)
 
     def test_get_ranking(self):
         """Test that we get the proper ranking for a card"""
